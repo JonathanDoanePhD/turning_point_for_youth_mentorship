@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>The Turning Point Project</title>
+  <rect width="32" height="32" fill="#112a3e"/>
+  <path d="M4 24 H14 L24.5 10" fill="none" stroke="#9bdeff" stroke-width="3" stroke-linecap="butt" stroke-linejoin="miter"/>
+  <path d="M20 8 H26 V14" fill="none" stroke="#9bdeff" stroke-width="3" stroke-linecap="square"/>
+  <circle cx="14" cy="24" r="4" fill="#f5600e"/>
+</svg>
