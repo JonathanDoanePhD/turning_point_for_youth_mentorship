@@ -156,3 +156,9 @@ footer img{width:28px;height:28px}
 /* keep filter controls inside narrow screens (long option labels) */
 .controls label{min-width:0;max-width:100%}
 .controls select,.controls input[type=search]{max-width:100%}
+
+/* TL;DR summary at the top of the overview */
+.tldr{border-left:4px solid var(--orange-bright);margin-bottom:1.6rem}
+.tldr h2{margin:.2rem 0 .6rem}
+.tldr ul{margin:0;padding-left:1.2rem}
+.tldr li{margin:.35rem 0}
