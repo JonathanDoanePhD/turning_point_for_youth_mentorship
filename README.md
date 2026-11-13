@@ -7,12 +7,22 @@ A research program, with analysis plans frozen locally before data access (not e
 relationships and educational attainment. Principal investigator: Jonathan Doane, Ph.D.
 ([research portfolio](https://jonathandoanephd.github.io/research-portfolio/)).
 
-> **Status (2026-11-13): under independent methodological review.** See `docs/independent_review_response.md` (audit),
-> `manuscripts/working_paper_v3.md` (corrected paper), `outputs/primary_estimands.csv` (estimates) and
-> `docs/reproducibility_checklist.md`. In brief: reported support from parents (and grade-11 math teachers) was modestly associated with later
-> education. Comparisons across ages or grades of measurement were imprecise, and none showed earlier-measured support carrying more weight.
-> These data cannot show that timing is irrelevant, and cumulative effects are not demonstrated. Observational associations only.
-> Not ready for public release.
+**Website:** https://jonathandoanephd.github.io/turning_point_for_youth_mentorship/ (built from `website/` by
+`.github/workflows/pages.yml`).
+
+> **Status (2026-11-13): working paper v4, approved by the author.** Nine observational analyses in six U.S. cohorts. Not peer reviewed.
+>
+> - **Paper:** `manuscripts/working_paper_v4.md`.
+> - **Results:** `outputs/primary_estimands.csv` (estimates) and `docs/results_*.md`.
+> - **Audit:** `docs/independent_review_response.md`. It was accepted, the survey estimates were reproduced in R (`crosscheck/`), and a
+>   second analyst confirmed the results.
+>
+> In brief:
+> - Reported support from parents, and from grade-11 math teachers, was modestly associated with later education.
+> - No comparison across ages, grades or mentor start ages was statistically significant.
+> - Within families (a sibling comparison), praise at ages 6–9 and 10–14 carried the same weight.
+> - Cumulative effects are not demonstrated, and these data cannot show that timing is irrelevant. All results are observational
+>   associations.
 
 ## What is here
 
@@ -22,18 +32,18 @@ relationships and educational attainment. Principal investigator: Jonathan Doane
 | Data feasibility | `docs/dataset_audit.md` (NLSY97, Add Health, HSLS:09, ELS:2002), `docs/dataset_audit_early_childhood.md` (PSID-CDS/TAS, NLSY79 CYA, FFCWS, ECLS-K, ECLS-K:2011, SECCYD, UK cohorts), comparison CSVs, `docs/variable_dictionary*.{md,csv}` (150 documented variables), `config/datasets.yaml` |
 | Design | `docs/research_questions.md`, `docs/conceptual_framework.md`, `docs/causal_framework.md` + `causal_dag.dot`, `docs/statistical_analysis_plan.md`, `docs/preregistration_draft.md`, `docs/ethics_and_limitations.md`, `docs/research_decision_log.md` |
 | Code | `src/turning_point/`: ingestion with provenance manifests, validation (ranges, identifiers, microdata-in-git guard), missing-code recoding that keeps reasons, scale scoring/reliability, survey-weighted GLMs (Taylor linearization and replicate weights), restricted cubic splines, age-moderation models, equivalence tests, Rubin pooling, Holm/BH, E-values, life-course structured-approach model comparison, guarded change-point estimation, grouped CV and subgroup calibration, provenance-stamped Plotly figures, CLI |
-| Tests | `tests/`: 38 tests incl. agreement with statsmodels' cluster-robust variance, a Monte Carlo bias/coverage check of the primary estimator, life-course model recovery, and site/citation integrity |
-| Website | `website/`: dependency-free static site (GitHub Pages compatible), generated data in `website/data/site.js` |
+| Tests | `tests/`: 48 tests incl. agreement with statsmodels' cluster-robust variance, a Monte Carlo bias/coverage check of the primary estimator, life-course model recovery, and site/citation integrity |
+| Website | `website/`: dependency-free static site, published to GitHub Pages by `.github/workflows/pages.yml` via `scripts/build_pages.py`; generated data in `website/data/site.js` and `website/data/findings.js` |
 | Planning | `scripts/power_age_interaction.py` → `outputs/design_power_age_interaction.csv` (assumed inputs, not data) |
 
-## Key decisions so far (details in `docs/research_decision_log.md`)
+## Key decisions (details in `docs/research_decision_log.md`)
 
-- **Paper 1** (signed off by the PI 2026-11-12): NLSY97 — does the association between a youth's report of a very
-  supportive parent at ages 12–16 (1997) and highest grade completed (~age 40) differ by age at report?
-  Difference *and* equivalence (SESOI 0.20 SD) are tested; "inconclusive" is a pre-allowed outcome.
-- **Add Health is excluded**: its Conditions of Use forbid processing its data with AI tools (verified 2026-11-12).
-- **Companion study**: HSLS:09 school-adult support in grade 9 vs grade 11 (the "freshman year" question, grade-anchored).
-- **Paper 2 candidate**: PSID-CDS/TAS identical "how close" items at ages ~8–11 and ~12–15.
+- **Plans:** frozen locally as hashed commits before each dataset was opened (`docs/PLAN_FREEZE*.md`). They are not external
+  preregistrations.
+- **Data restrictions:** Add Health, PSID and Future of Families restrict AI processing of their data. Their analyses (Studies 5–7 and 9)
+  were planned from documentation, run by the author outside AI tools, and are reported qualitatively only.
+- **Origin of the project:** it began inside another repository (`ai-incident-atlas`) and was moved here, with its full history, on
+  2026-11-13 (D-050).
 
 ## Setup and reproduction
 

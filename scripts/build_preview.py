@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "website"
-REPO = "https://github.com/JonathanDoanePhD/ai-incident-atlas/blob/claude/hopeful-meitner-7n06qq/turning-point-project/"
+REPO = "https://github.com/JonathanDoanePhD/turning_point_for_youth_mentorship/blob/main/"
 
 
 def data_uri(path: Path) -> str:
