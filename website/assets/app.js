@@ -11,12 +11,13 @@
   /* theme */
   const tb = $("#themeBtn");
   tb.addEventListener("click", () => {
-    const cur = document.documentElement.dataset.theme ||
-      (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const cur = document.documentElement.dataset.theme || "light";  // light is the default; dark only when chosen
     const next = cur === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
+    tb.textContent = next === "dark" ? "Light" : "Dark";
     try { localStorage.setItem("tpp-theme", next); } catch (e) { /* storage unavailable */ }
   });
+  tb.textContent = document.documentElement.dataset.theme === "dark" ? "Light" : "Dark";
 
   /* nav highlighting */
   const links = [...document.querySelectorAll("nav.main a")];
@@ -115,7 +116,7 @@
     g.setAttribute("aria-label", n.label + ": show details");
     g.setAttribute("transform", `translate(${n.x},${n.y})`);
     const lines = n.label.split("\n");
-    g.innerHTML = `<rect width="${W}" height="${H}" rx="8"></rect>` + lines.map((l, i) =>
+    g.innerHTML = `<rect width="${W}" height="${H}"></rect>` + lines.map((l, i) =>
       `<text x="${W / 2}" y="${H / 2 + (i - (lines.length - 1) / 2) * 15 + 4}" text-anchor="middle">${esc(l)}</text>`).join("");
     g.addEventListener("click", () => showNode(n.id));
     g.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); showNode(n.id); } });
